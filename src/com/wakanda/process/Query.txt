@@ -1,0 +1,8 @@
+select 
+	NOMBRECOMPLETO, 
+	ESTADO ,
+	(select count(*) from VOTO where IDCANDIDATXS=c.ID) as TOTAL_VOTOS  
+from 
+	CANDIDATXS c 
+where 
+	ESTADO='ACTIVA' order by TOTAL_VOTOS desc
